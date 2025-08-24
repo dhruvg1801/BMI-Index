@@ -1,0 +1,101 @@
+body {
+  font-family: "Edu NSW ACT Hand Cursive" , cursive;
+  background-color: #5A86AD;
+}
+.mainPage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #5A86AD;
+  margin-top: 50px;
+}
+.container{
+  background-color: #fbfcfc;
+  display : inline-block;
+  box-shadow: 20px 20px 30px rgba(245, 245, 220, 0.8);
+  padding: 12px 12px
+}
+
+.weightContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 500px;
+  height: 200px;
+  margin-bottom: 10px;
+}
+
+.weightInfo, .hieghtInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 300px;
+  height: 100%;
+}
+
+.weightImg, .heightImg {
+  width: 200px;
+  height: 200px;  
+}
+.weightImage, .heightImage {
+  width: 200px;
+  height: 200px;
+}
+.displayWeight {
+ position : absolute;
+  top: 19px;
+  left: 97px;
+  font-size: 13px;
+  font-weight: bold;
+  color: #ffffff;
+}
+.imgSetting {
+  position: relative;
+ }
+.weightText, .heightText {
+  font-size: 20px;
+  font-weight: bold;
+  color: #000000;
+  margin-top: 10px;
+}
+.weight, .hieght  {
+  padding: 12px 20px;
+  font-size: 20px;
+  border-radius: 50px;
+}
+.heightContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 500px;
+  height: 200px;
+  margin-bottom: 10px;
+}
+.displayHeight {
+   position : absolute;
+  top: 30px;
+  left: 147px;
+  font-size: 13px;
+  font-weight: bold;
+  color: #000000;
+}
+.calculateButton {
+  background-color: #97572b;
+  color: #ffffff;
+  padding: 10px 20px;
+  font-size: 18px;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  margin-top: 20px;
+}
+.text, .result, .excessWeight, .recommendations {
+  font-size: 20px;
+  font-weight: bold;
+  color: #000000;
+  margin-top: 10px;
+  text-align: center;
+}

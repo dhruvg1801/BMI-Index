@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <title>
+    BMI Index Calculator
+  </title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Cursive:wght@400..700&family=Exile&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="BMI-index.css">
+  </head>
+  <body>
+  <div class="mainPage" >
+  <div class ="container">
+    <div class="weightContainer">
+      <div class="weightInfo">
+        <p class="weightText">
+          Enter Your Weight (kg):
+        </p>
+        <input oninput="updateDisplay()" type="number" class="weight" placeholder="Weight in kg">
+      </div>
+      <div class="imgSetting">
+        <div class="weightImg">
+          <img src="OIP.jpeg" alt="Weight Image" class="weightImage">
+        </div>
+        <div class="displayWeight">
+         82
+        </div>
+      </div>
+    </div>
+    <div class="heightContainer">
+       <div class="heightInfo">
+        <p class="heightText">
+          Enter Your Height (m):
+        </p>  
+        <input oninput=" updateDisplay() " type="number" class="hieght" placeholder="Height in meters"> 
+      </div>
+      <div class="imgSetting">
+        <div class="heightImg">
+          <img src="OIP (1).jpeg" alt="Height Image" class="heightImage">
+        </div>
+        <div class="displayHeight">
+          1.80
+        </div>
+      </div>
+    </div>
+
+      <div>
+        <button onclick="calculateBMI()" class="calculateButton">
+          Calculate BMI
+        </button>
+        <p class="text">
+          Normal BMI is between 18.5 and 24.9.
+        </p>
+        </p>
+        <p class="result">
+        
+        </p>
+        <p class="excessWeight">
+       
+        </p>
+        <p class="recommendations">
+
+        </p>
+      </div>
+  </div>
+  </div>
+    <script>
+      const weightInput = document.querySelector('.weight');
+      const heightInput = document.querySelector('.hieght');
+      const weightDisplay = document.querySelector('.displayWeight');
+      const heightDisplay = document.querySelector('.displayHeight');
+      
+      function calculateBMI() {
+        const bmiValue = (weightInput.value) / (heightInput.value * heightInput.value);
+        const resultElement = document.querySelector('.result');
+        resultElement.innerHTML = `Your BMI is ${bmiValue.toFixed(2)}`;
+        if (bmiValue < 18.5) {
+          resultElement.innerHTML += ' (Underweight)';
+        } else if (bmiValue >= 18.5 && bmiValue < 24.9) {
+          resultElement.innerHTML += ' (Normal weight) ';
+        } else if (bmiValue >= 25 && bmiValue < 29.9) {
+          resultElement.innerHTML += ' (Overweight)';
+        } else {
+          resultElement.innerHTML += ' (Obesity)';
+        }
+        const excessWeightElement = document.querySelector('.excessWeight');
+        const extraWeight = weightInput.value - (heightInput.value * heightInput.value * 24.9) ;
+        excessWeightElement.innerHTML = `Excess weight that needs to be reduced is ${extraWeight.toFixed(2)} kg`;
+
+
+        const recommendationsElement = document.querySelector('.recommendations');
+        if (bmiValue < 18.5) {
+          recommendationsElement.innerHTML = `Its recommended to increase your weight 
+          it can be done by consuming more calories than you burn.
+          for more information <a href="https://www.healthline.com/nutrition/18-foods-to-gain-weight"> click here</a>`;
+        } else if (bmiValue > 25) {
+          recommendationsElement.innerHTML = `Its recommended to reduce your weight 
+          it can be done by consuming fewer calories than you burn.
+          for more information <a href="https://www.healthline.com/nutrition/20-tips-to-lose-belly-fat"> click here</a>`;
+        } else {
+          recommendationsElement.innerHTML = `Your BMI is normal, keep up the good work!`;
+        }
+        updateDisplay()
+      }
+       
+      function updateDisplay() {
+        weightDisplay.textContent = weightInput.value;
+        heightDisplay.textContent = heightInput.value;
+      }
+    </script> 
+  </body>
+</html>
